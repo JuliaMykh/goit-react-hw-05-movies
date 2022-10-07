@@ -15,8 +15,6 @@ export const HomePage = () => {
     return null;
   }
 
-  const { id, title } = movies;
-
   return (
       
       <>
