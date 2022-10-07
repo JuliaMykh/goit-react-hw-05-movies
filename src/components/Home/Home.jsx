@@ -6,17 +6,23 @@ export const HomePage = () => {
   const [movies, setMovies] = useState(null);
   
   const location = useLocation();
-  // console.log(location);
     
      useEffect(() => {
     getTrends().then(setMovies);
-  }, []);
+     }, []);
+  
+  if (!movies) {
+    return null;
+  }
 
-    return (
+  const { id, title } = movies;
+
+  return (
+      
       <>
         <h2> Home page</h2>
-          { movies &&
-        movies.map(({id, title}) => (
+          
+        {movies.map(({id, title}) => (
           <li key={id}>
             <Link
               to={{
