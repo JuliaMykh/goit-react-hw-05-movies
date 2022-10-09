@@ -1,4 +1,4 @@
-import getTrends  from '../services/apiTrends';
+import getTrends  from '../../components/services/apiTrends';
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -7,7 +7,8 @@ export const HomePage = () => {
   
   const location = useLocation();
     
-     useEffect(() => {
+  useEffect(() => {
+       
     getTrends().then(setMovies);
      }, []);
   
@@ -16,24 +17,17 @@ export const HomePage = () => {
   }
 
   return (
-      
       <>
         <h2> Home page</h2>
           
         {movies.map(({id, title}) => (
           <li key={id}>
-            <Link
-              to={{
-                pathname: `movies/${id}`,
-                state: { params: location },
-              }}
-            >
+            <Link to={`/movies/${id}`} state={{ from: location }}>
               {title ? title : "Movie with no title"}
           </Link>
           </li>
         ))}
         </>
-        
     );
 
 };
