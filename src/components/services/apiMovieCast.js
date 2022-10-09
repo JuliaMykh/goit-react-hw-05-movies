@@ -6,11 +6,14 @@ async function getMovieCast(movieId) {
   const response = await fetch(`${url}${filter}`);
   const data = await response.json();
 
+  // console.log(data);
+  // return data;
+
  const castMovies = data.cast.map(({ id, name, profile_path }) => {
     return { id, name, profile_path };
   });
-
- 
+  
+  // console.log(castMovies);
   return castMovies;
 }
 

@@ -6,13 +6,15 @@ async function getMovieReviews(movieId) {
   const response = await fetch(`${url}${filter}`);
   const data = await response.json();
 
-  const reviewsMovies = data.results.map(
-    ({ author, content, id }) => {
-      return { author, content, id };
-    },
-  );
+  return data;
+
+  // const reviewsMovies = data.results.map(
+  //   ({ author, content, id }) => {
+  //     return { author, content, id };
+  //   },
+  // );
   
-  return reviewsMovies;
+  // return reviewsMovies;
 }
 
 export default getMovieReviews;
