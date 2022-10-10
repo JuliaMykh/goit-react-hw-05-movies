@@ -5,29 +5,23 @@ import getSearchMovie from '../../components/services/apiSearchMovie';
 // import { SearchBar } from '../../components/SearchBar/SearchBar';
 
 export const MoviesPage = () => {
-  const [movies, setMovies] = useState(null);
+  const [movies, setMovies] = useState(() => {
+    return JSON.parse(window.localStorage.getItem('movies')) ?? [];
+  });
   
   const location = useLocation();
   const navigate = useNavigate();
   const { search } = useLocation();
   const query = new URLSearchParams(search).get('query') ?? '';
 
-useEffect(() => {
+  useEffect(() => {
+    window.localStorage.setItem('movies', JSON.stringify(movies));
+  }, [movies]);
+
+  useEffect(() => {
     if (query !== '') {
-      getSearchMovie(query).then(({ results }) => {
-        const moviesArr = [];
-        results.map(
-          ({ id, title}) => {
-            const movie = {
-              id,
-              title: title,
-            };
-            return moviesArr.push(movie);
-          },
-        );
-        setMovies(moviesArr);
-      });
-    }
+      getSearchMovie(query).then(setMovies);
+   }
   }, [query]);
     
     function onSubmitForm(e) {
@@ -48,7 +42,7 @@ useEffect(() => {
                 <button type='submit'>Submit</button>
                 </form>
       {movies &&
-        movies.map(({id, title}) => (
+        movies.results.map(({id, title}) => (
           <li key={id}>
             <Link
               to={{
