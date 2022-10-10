@@ -8,11 +8,14 @@ export const Reviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState(null);    
 
-    useEffect(() => {
-      getMovieReviews(movieId).then(setReviews);
-    }, [movieId]);
+  useEffect(() => {
+    getMovieReviews(movieId).then(setReviews);
+  }, [movieId]);
 
-    return (
-        <ReviewsList reviews={reviews} />
-    )
+  return (
+    <>
+      <h2>Reviews Page</h2>
+        {reviews && <ReviewsList reviews={reviews} />}
+    </>
+    ) 
 }

@@ -22,8 +22,8 @@ export const MovieDetails = () => {
       <> 
           <h2>Movie details</h2>
       {movieInfo && <MovieDetail movie={movieInfo} />}
-      <Link to={`cast`} state={{ from: location.state?.from ?? '/movies' }}>Cast</Link>
-      <Link to={`review`} state={{ from: location.state?.from ?? '/movies' }}>Review</Link>
+      <Link to={`cast`} state={{ from: location.state?.from ?? '/' }}>Cast</Link>
+      <Link to={`reviews`} state={{ from: location.state?.from ?? '/' }}>Review</Link>
       <Outlet />
     </>
   );

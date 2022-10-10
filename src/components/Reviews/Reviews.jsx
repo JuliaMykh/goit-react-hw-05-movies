@@ -2,11 +2,12 @@ export const ReviewsList = ({ reviews  }) => {
 
     return (
         <ul>
-            {reviews.map((id, author, text) => {
+            {reviews.results.map(({id, author, content}) => {
                 return (
+                   
                     <li key={id} >
                         <h2>{author}</h2>
-                        <p>{text}</p>
+                        <p>{content}</p>
                     </li>
                 )
             })}

@@ -15,7 +15,7 @@ export const Cast = () => {
     return (
         <>
             <h2>Cast</h2>
-            <CastList actors={actors} />
+        {actors && <CastList actors={actors} />}
             </>
     );
 }
