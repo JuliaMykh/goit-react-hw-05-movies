@@ -11,7 +11,7 @@ export const CastList = ({ actors }) => {
             <CastItem key={id}>
                 <CastImg
                   src={
-                    profile_path ? `https://image.tmdb.org/t/p/w500/${profile_path}` : "No image"
+                    profile_path ? `https://image.tmdb.org/t/p/w500/${profile_path}` : "https://ik.imagekit.io/tc8jxffbcvf/default-movie-portrait_EmJUj9Tda5wa.jpg?tr=fo-auto,di-';"
                   }
                   alt={character}
                 />

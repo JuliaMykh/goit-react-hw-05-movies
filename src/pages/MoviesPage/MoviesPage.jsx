@@ -8,20 +8,14 @@ import { Loader } from 'components/Loader/Loader';
 import { Title } from './MoviesPage.styled';
 
 export const MoviesPage = () => {
-  // const [movies, setMovies] = useState(() => {
-  //   return JSON.parse(window.localStorage.getItem('movies')) ?? [];
-  // });
+  
   const [movies, setMovies] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   
   const { search } = useLocation();
   const query = new URLSearchParams(search).get('query') ?? '';
 
-  // useEffect(() => {
-  //   window.localStorage.setItem('movies', JSON.stringify(movies));
-  // }, [movies]);
-
-  useEffect(() => {
+   useEffect(() => {
    if (query !== '') {
      try {
       setIsLoading(true);

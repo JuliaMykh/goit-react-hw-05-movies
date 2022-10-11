@@ -21,7 +21,7 @@ function onSubmitForm(e) {
       <form onSubmit={onSubmitForm}>
         <InputBox>
           <Input type="text" name='query' />
-          <Button type='submit'>Submit</Button>
+          <Button type='submit'>Search </Button>
           </InputBox>
       </form>
       </SearchBarBox>
