@@ -19,6 +19,7 @@ export const NavItem = styled(NavLink)`
   &.active {
     color: white;
     background-color: #9d4c92;
+
   }
 `;
 
@@ -33,4 +34,5 @@ export const Header = styled.header`
   padding-bottom: 20px;
   border-bottom: 2px solid black;
   margin-bottom: 20px;
+  
 `;

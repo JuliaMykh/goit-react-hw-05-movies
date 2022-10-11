@@ -21,17 +21,17 @@ export const MoviesPage = () => {
   }, [movies]);
 
   useEffect(() => {
-    if (query !== '') {
-      try {
-        setIsLoading(true);
-        getSearchMovie(query).then(setMovies);
-      }
-      catch (err){
-        console.log(err)
-      }
-      finally {
-        setIsLoading(false);
-      }
+   if (query !== '') {
+     try {
+      setIsLoading(true);
+      getSearchMovie(query).then(setMovies);
+     }
+     catch (err) {
+      console.log(err)
+     }
+     finally {
+      setIsLoading(false);
+     }
     }
     
   }, [query]);

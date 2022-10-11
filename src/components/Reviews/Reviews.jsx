@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { ReviewTitle } from './Reviews.styled';
+import { ReviewTitle, ReviewText } from './Reviews.styled';
 
 export const ReviewsList = ({ reviews }) => {
 
@@ -11,7 +11,7 @@ export const ReviewsList = ({ reviews }) => {
                    
                     <li key={id} >
                         <ReviewTitle>{author ? author : "No autor"}</ReviewTitle>
-                        <p>{content}</p>
+                        <ReviewText>{content}</ReviewText>
                     </li>
                 )
             })}
