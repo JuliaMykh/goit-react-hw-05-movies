@@ -1,4 +1,4 @@
-async function getMovieReviews(movieId) {
+export async function getMovieReviews(movieId) {
   const key = '73f6ff20fa414d222403a4af56220c3d';
   const url = `https://api.themoviedb.org/3/movie/${movieId}/reviews`;
   const filter = `?api_key=${key}&language=en-US&page=1`;
@@ -19,4 +19,3 @@ async function getMovieReviews(movieId) {
   // return reviewsMovies;
 }
 
-export default getMovieReviews;

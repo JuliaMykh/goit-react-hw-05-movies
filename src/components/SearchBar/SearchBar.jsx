@@ -1,29 +1,32 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 
-export const SearchBar = () => {
-    const location = useLocation();
-    const navigate = useNavigate();
-    
-function onSubmitForm(e) {
-    e.preventDefault();
-    const value = e.target.elements.query.value;
+import { SearchBarBox, Input, Button, InputBox } from './SearchBar.styled';
 
-    navigate({
+export const SearchBar = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+function onSubmitForm(e) {
+        e.preventDefault();
+        const value = e.target.elements.query.value;
+    //    console.log(value);
+        navigate({
       ...location,
       search: `query=${value}`,
     });
   }
 
   return (
-    <div>
+    <SearchBarBox>
       <form onSubmit={onSubmitForm}>
-        <input type="text" name="query" />
-        <button type="submit">
-        Submit
-        </button>
+        <InputBox>
+          <Input type="text" name='query' />
+          <Button type='submit'>Submit</Button>
+          </InputBox>
       </form>
-    </div>
+      </SearchBarBox>
   );
 }
-    
+
+
 

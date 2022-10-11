@@ -1,26 +1,51 @@
-import { useLocation, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { useLocation } from 'react-router-dom';
+
+import {
+  GoBackLink,
+  MovieBox,
+  MovieImg,
+  MovieInform,
+  MovieTitle,
+  MovieGenres,
+  MovieOverview,
+  MovieVote,
+  MovieAverage,
+} from './MovieDetail.styled';
 
 export const MovieDetail = ({movie: { poster_path, title, genres, overview, vote_average  }},
 ) =>  {
   const location = useLocation();
 
   return (
-    <div>
-       <Link to={location?.state?.from ?? '/movies'}>Go Back</Link>       
-        <img
+    <MovieBox>
+       <GoBackLink to={location?.state?.from ?? '/movies'}>Go Back</GoBackLink>       
+        <MovieInform>
+      <MovieImg
           src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : "No poster"}
           alt={title}
         />
         <div>
-            <h2>{title}</h2>
-             {genres.map(({ name }) => name).join(', ')}
-          <p>{overview}</p>
-          <div>
-              Vote average: <p>{vote_average}</p>
-          </div>
+          <MovieTitle>{title}</MovieTitle>
+          <MovieGenres>{genres.map(({ name }) => name).join(', ')}</MovieGenres>
+             
+          <MovieOverview>{overview}</MovieOverview>
+          <MovieVote> Vote average:</MovieVote> <MovieAverage>{vote_average}</MovieAverage>
+             
+          
         </div>
-      
-    </div>
+      </MovieInform>
+    </MovieBox>
   );
 }
+
+MovieDetail.propTypes = {
+  movies: PropTypes.shape({
+    poster_path: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    genres: PropTypes.arrayOf(PropTypes.shape),
+    overview: PropTypes.string.isRequired,
+    vote_average: PropTypes.number.isRequired,
+  }),
+};
 

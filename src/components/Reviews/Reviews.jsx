@@ -1,4 +1,8 @@
-export const ReviewsList = ({ reviews  }) => {
+import PropTypes from 'prop-types';
+
+import { ReviewTitle } from './Reviews.styled';
+
+export const ReviewsList = ({ reviews }) => {
 
     return (
         <ul>
@@ -6,12 +10,20 @@ export const ReviewsList = ({ reviews  }) => {
                 return (
                    
                     <li key={id} >
-                        <h2>{author}</h2>
+                        <ReviewTitle>{author ? author : "No autor"}</ReviewTitle>
                         <p>{content}</p>
                     </li>
                 )
             })}
         </ul>
     );
+};
+
+ReviewsList.propTypes = {
+    reviews: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        author: PropTypes.string,
+        content: PropTypes.string,
+    })
 };
 

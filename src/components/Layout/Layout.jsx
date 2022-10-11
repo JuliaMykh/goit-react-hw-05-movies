@@ -1,16 +1,18 @@
 import { Outlet } from "react-router-dom";
-import { NavItem } from './Layout.styled';
-
+import { NavItem, Container, Header } from './Layout.styled';
 
 export const Layout = () => {
     return (
-        <div>
+        <Container>
+            <Header>
             <nav>
-                <NavItem to="/">Home</NavItem>
+                <NavItem to="/" end>Home</NavItem>
                 <NavItem to="/movies">Movies</NavItem>
-            </nav>
+                </nav>
+            </Header>
+            
             <Outlet />
-        </div>
+        </Container>
         
     );
 };
