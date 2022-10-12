@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
-import {useParams, Outlet, useLocation } from "react-router-dom";
+import { useState, useEffect, Suspense } from "react";
+import { useParams, Outlet, useLocation } from "react-router-dom";
 
 import {getMovieDetails} from 'components/services/apiMovieDetails';
 import { MovieDetail } from 'components/MovieDetail/MovieDetail';
-import { Loader } from 'components/Loader/Loader';
+import Loader from 'components/Loader/Loader';
 import { Title, Link } from './MovieDetailsPage.styled';
 
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const [movieInfo, setMovieInfo] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   
@@ -26,10 +26,10 @@ export const MovieDetails = () => {
     finally {
       setIsLoading(false);
     }
-  }, [movieId ]);
+  }, [movieId]);
     
   return (
-      <> 
+    <>
       <Title>Movie details</Title>
       
       {isLoading && <Loader />}
@@ -38,8 +38,12 @@ export const MovieDetails = () => {
 
       <Link to={`cast`} state={{ from: location.state?.from ?? '/' }}>Cast</Link>
       <Link to={`reviews`} state={{ from: location.state?.from ?? '/' }}>Review</Link>
-
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </>
   );
-}
+};
+
+
+export default MovieDetails;

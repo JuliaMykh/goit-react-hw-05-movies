@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import {getMovieCast} from 'components/services/apiMovieCast';
 import { CastList } from 'components/Cast/Cast';
 
-export const Cast = () => {
+const Cast = () => {
   const { movieId } = useParams();
   const [actors, setActors] = useState(null);    
 
@@ -24,3 +24,5 @@ export const Cast = () => {
             </>
     );
 }
+
+export default Cast;

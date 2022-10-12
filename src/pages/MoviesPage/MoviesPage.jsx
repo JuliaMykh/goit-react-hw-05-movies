@@ -4,10 +4,10 @@ import { useLocation } from 'react-router-dom';
 import {getSearchMovie} from 'components/services/apiSearchMovie';
 import { SearchBar } from 'components/SearchBar/SearchBar';
 import { MoviesList } from 'components/MovieList/MovieList';
-import { Loader } from 'components/Loader/Loader';
+import Loader from 'components/Loader/Loader';
 import { Title } from './MoviesPage.styled';
 
-export const MoviesPage = () => {
+const MoviesPage = () => {
   
   const [movies, setMovies] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -44,5 +44,5 @@ export const MoviesPage = () => {
     );
 }
 
-
+export default MoviesPage;
  

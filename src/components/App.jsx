@@ -1,14 +1,14 @@
 import { Route, Routes, Navigate  } from "react-router-dom";
+import { lazy } from 'react';
+import Layout from './Layout/Layout';
 
-import { Layout } from './Layout/Layout';
-import { HomePage } from '../pages/HomePage/HomePage';
-import { MoviesPage } from '../pages/MoviesPage/MoviesPage';
-import { MovieDetails } from '../pages/MovieDetailsPage/MovieDetailsPage';
-import { Reviews } from "pages/ReviewsPage/ReviewsPage";
-import { Cast } from "pages/CastPage/CastPage";
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+const MoviesPage = lazy(() => import('../pages/MoviesPage/MoviesPage'));
+const MovieDetails = lazy(() => import('../pages/MovieDetailsPage/MovieDetailsPage'));
+const Reviews = lazy(() => import('../pages/ReviewsPage/ReviewsPage'));
+const Cast = lazy(() => import('../pages/CastPage/CastPage'));
 
-
-export const App = () => {
+const App = () => {
   return (
     <>
      
@@ -27,5 +27,5 @@ export const App = () => {
   );
 };
 
-
+export default App;
 

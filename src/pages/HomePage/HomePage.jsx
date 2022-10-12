@@ -4,7 +4,7 @@ import {getTrends}  from 'components/services/apiTrends';
 import { MoviesList } from 'components/MovieList/MovieList';
 import { Title } from './HomePage.styled';
 
-export const HomePage = () => {
+const HomePage = () => {
   const [movies, setMovies] = useState(null);
 
   useEffect(() => {
@@ -29,3 +29,5 @@ export const HomePage = () => {
         </>
     );
 };
+
+export default HomePage;
