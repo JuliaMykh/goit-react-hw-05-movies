@@ -25,11 +25,9 @@ export const CastList = ({ actors }) => {
 }
 
 CastList.propTypes = {
-  actors: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string,
-    profile_path: PropTypes.string,
-    character: PropTypes.string,
-  })
+  id: PropTypes.number,
+  name: PropTypes.string,
+  profile_path: PropTypes.string,
+  character: PropTypes.string,
 };
 

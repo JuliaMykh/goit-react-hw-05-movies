@@ -40,12 +40,15 @@ export const MovieDetail = ({movie: { poster_path, title, genres, overview, vote
 }
 
 MovieDetail.propTypes = {
-  movies: PropTypes.shape({
-    poster_path: PropTypes.string.isRequired,
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+        poster_path: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     genres: PropTypes.arrayOf(PropTypes.shape),
     overview: PropTypes.string.isRequired,
     vote_average: PropTypes.number.isRequired,
-  }),
+    })
+  ),
+
 };
 

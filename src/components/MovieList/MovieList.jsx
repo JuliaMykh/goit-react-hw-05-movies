@@ -4,7 +4,6 @@ import { useLocation } from 'react-router-dom';
 import { MovieList, MovieItem, Link } from './MovieList.styled';
 
 export const MoviesList = ({ movies }) => {
-
     const location = useLocation();
     
     return (
@@ -24,10 +23,8 @@ export const MoviesList = ({ movies }) => {
 }
 
 MoviesList.propTypes = {
-    movies: PropTypes.shape({
-        id: PropTypes.number,
-        title: PropTypes.string,
-    }),
+    id: PropTypes.number,
+    title: PropTypes.string,
 };
 
 

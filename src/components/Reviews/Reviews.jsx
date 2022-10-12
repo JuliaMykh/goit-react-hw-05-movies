@@ -20,10 +20,8 @@ export const ReviewsList = ({ reviews }) => {
 };
 
 ReviewsList.propTypes = {
-    reviews: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        author: PropTypes.string,
-        content: PropTypes.string,
-    })
+    id: PropTypes.number,
+    author: PropTypes.string,
+    content: PropTypes.string,
 };
 

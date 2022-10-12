@@ -1,10 +1,11 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 
 import { SearchBarBox, Input, Button, InputBox } from './SearchBar.styled';
 
 export const SearchBar = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
 function onSubmitForm(e) {
         e.preventDefault();
@@ -20,7 +21,11 @@ function onSubmitForm(e) {
     <SearchBarBox>
       <form onSubmit={onSubmitForm}>
         <InputBox>
-          <Input type="text" name='query' />
+          <Input
+            type="text"
+            name='query'
+            defaultValue={searchParams.get('query')}
+          />
           <Button type='submit'>Search </Button>
           </InputBox>
       </form>

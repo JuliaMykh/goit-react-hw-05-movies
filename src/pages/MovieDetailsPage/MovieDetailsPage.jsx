@@ -14,11 +14,13 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const location = useLocation();
   
+  // console.log(typeof movieId);
+
   useEffect(() => {
     try {
       setIsLoading(true);
-      getMovieDetails(movieId).then(setMovieInfo);
-      // console.log(movieInfo);
+      getMovieDetails(Number (movieId)).then(setMovieInfo);
+      
     }
     catch (err) {
       console.log(err);
