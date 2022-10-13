@@ -17,8 +17,8 @@ const MovieDetails = () => {
   // console.log(typeof movieId);
 
   useEffect(() => {
-      setIsLoading(true);
-      getMovieDetails(Number(movieId))
+    setIsLoading(true);
+    getMovieDetails(Number(movieId))
       .then(setMovieInfo)
       .catch((err => console.log(err)))
       .finally(setIsLoading(false))
