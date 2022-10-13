@@ -12,13 +12,6 @@ const Cast = () => {
     getMovieCast(Number(movieId))
       .then(setCast)
       .catch(err => console.log(err))
-
-    // try {
-    //   getMovieCast(Number(movieId)).then(setCast);  
-    // }
-    // catch (err) {
-    //   console.log(err);
-    // }
   }, [movieId ]);
     
     return (

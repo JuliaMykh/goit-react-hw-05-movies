@@ -22,27 +22,14 @@ const MoviesPage = () => {
          .then(setResults)
          .catch(err => console.log(err))
          .finally(setIsLoading(false))
-    }
-  //  if (query !== '') {
-  //    try {
-  //     setIsLoading(true);
-  //     getSearchMovie(query).then(setResults);
-  //    }
-  //    catch (err) {
-  //     console.log(err)
-  //    }
-  //    finally {
-  //     setIsLoading(false);
-  //    }
-  //   }
-    
+    } 
    }, [query]);
   
   // console.log(setResults);
   //  console.log(results);
  
     return (
-        <>
+    <>
         <Title>Movies search page</Title>
 
         {isLoading && <Loader />}
@@ -50,7 +37,7 @@ const MoviesPage = () => {
         <SearchBar />
 
         {results && <MoviesList results={results} />}
-</>
+    </>
     );
 }
 

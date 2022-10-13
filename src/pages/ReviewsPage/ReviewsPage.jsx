@@ -12,13 +12,6 @@ const Reviews = () => {
     getMovieReviews(Number(movieId))
       .then(setResults)
       .catch(err => console.log(err))
-    
-    // try {
-    //   getMovieReviews(Number(movieId)).then(setResults);
-    // }
-    // catch (err) {
-    //   console.log(err);
-    // }
   }, [movieId]);
 
   return (

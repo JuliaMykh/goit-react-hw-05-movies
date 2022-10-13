@@ -22,18 +22,6 @@ const MovieDetails = () => {
       .then(setMovieInfo)
       .catch((err => console.log(err)))
       .finally(setIsLoading(false))
-    
-    // try {
-    //   setIsLoading(true);
-    //   getMovieDetails(Number(movieId)).then(setMovieInfo);
-      
-    // }
-    // catch (err) {
-    //   console.log(err);
-    // }
-    // finally {
-    //   setIsLoading(false);
-    // }
   }, [movieId]);
     
   return (

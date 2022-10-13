@@ -11,13 +11,6 @@ const HomePage = () => {
     getTrends()
       .then(setResults)
       .catch(err => console.log(err));
-    
-    // try {
-    //   getTrends().then(setResults);
-    // }
-    // catch (err){
-    //   console.log(err);
-    // }
      }, []);
   
   if (!results) {
@@ -29,7 +22,6 @@ const HomePage = () => {
       <Title> Tranding movies for today</Title>
       
       {results && <MoviesList results={results} />}
-          
         </>
     );
 };
