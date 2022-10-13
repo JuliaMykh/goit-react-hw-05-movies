@@ -9,12 +9,16 @@ const Reviews = () => {
   const [results, setResults] = useState(null);
 
   useEffect(() => {
-    try {
-      getMovieReviews(Number(movieId)).then(setResults);
-    }
-    catch (err) {
-      console.log(err);
-    }
+    getMovieReviews(Number(movieId))
+      .then(setResults)
+      .catch(err => console.log(err))
+    
+    // try {
+    //   getMovieReviews(Number(movieId)).then(setResults);
+    // }
+    // catch (err) {
+    //   console.log(err);
+    // }
   }, [movieId]);
 
   return (

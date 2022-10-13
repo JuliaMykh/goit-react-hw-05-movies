@@ -9,13 +9,16 @@ const Cast = () => {
   const [cast, setCast] = useState(null);    
 
   useEffect(() => {
-    try {
-      
-      getMovieCast(Number(movieId)).then(setCast);  
-    }
-    catch (err) {
-      console.log(err);
-    }
+    getMovieCast(Number(movieId))
+      .then(setCast)
+      .catch(err => console.log(err))
+
+    // try {
+    //   getMovieCast(Number(movieId)).then(setCast);  
+    // }
+    // catch (err) {
+    //   console.log(err);
+    // }
   }, [movieId ]);
     
     return (

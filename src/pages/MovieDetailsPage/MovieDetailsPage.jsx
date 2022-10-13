@@ -17,17 +17,23 @@ const MovieDetails = () => {
   // console.log(typeof movieId);
 
   useEffect(() => {
-    try {
       setIsLoading(true);
-      getMovieDetails(Number(movieId)).then(setMovieInfo);
+      getMovieDetails(Number(movieId))
+      .then(setMovieInfo)
+      .catch((err => console.log(err)))
+      .finally(setIsLoading(false))
+    
+    // try {
+    //   setIsLoading(true);
+    //   getMovieDetails(Number(movieId)).then(setMovieInfo);
       
-    }
-    catch (err) {
-      console.log(err);
-    }
-    finally {
-      setIsLoading(false);
-    }
+    // }
+    // catch (err) {
+    //   console.log(err);
+    // }
+    // finally {
+    //   setIsLoading(false);
+    // }
   }, [movieId]);
     
   return (

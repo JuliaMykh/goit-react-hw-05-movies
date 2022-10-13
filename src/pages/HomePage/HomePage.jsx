@@ -8,12 +8,16 @@ const HomePage = () => {
   const [results, setResults] = useState(null);
 
   useEffect(() => {
-    try {
-      getTrends().then(setResults);
-    }
-    catch (err){
-      console.log(err);
-    }
+    getTrends()
+      .then(setResults)
+      .catch(err => console.log(err));
+    
+    // try {
+    //   getTrends().then(setResults);
+    // }
+    // catch (err){
+    //   console.log(err);
+    // }
      }, []);
   
   if (!results) {

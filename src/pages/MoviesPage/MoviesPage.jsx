@@ -15,19 +15,26 @@ const MoviesPage = () => {
   const { search } = useLocation();
   const query = new URLSearchParams(search).get('query') ?? '';
 
-   useEffect(() => {
-   if (query !== '') {
-     try {
+  useEffect(() => {
+     if (query !== '') {
       setIsLoading(true);
-      getSearchMovie(query).then(setResults);
-     }
-     catch (err) {
-      console.log(err)
-     }
-     finally {
-      setIsLoading(false);
-     }
+       getSearchMovie(query)
+         .then(setResults)
+         .catch(err => console.log(err))
+         .finally(setIsLoading(false))
     }
+  //  if (query !== '') {
+  //    try {
+  //     setIsLoading(true);
+  //     getSearchMovie(query).then(setResults);
+  //    }
+  //    catch (err) {
+  //     console.log(err)
+  //    }
+  //    finally {
+  //     setIsLoading(false);
+  //    }
+  //   }
     
    }, [query]);
   
