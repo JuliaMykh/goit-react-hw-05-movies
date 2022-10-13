@@ -9,7 +9,7 @@ import { Title } from './MoviesPage.styled';
 
 const MoviesPage = () => {
   
-  const [movies, setMovies] = useState(null);
+  const [results, setResults] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   
   const { search } = useLocation();
@@ -19,7 +19,7 @@ const MoviesPage = () => {
    if (query !== '') {
      try {
       setIsLoading(true);
-      getSearchMovie(query).then(setMovies);
+      getSearchMovie(query).then(setResults);
      }
      catch (err) {
       console.log(err)
@@ -29,8 +29,11 @@ const MoviesPage = () => {
      }
     }
     
-  }, [query]);
+   }, [query]);
   
+  // console.log(setResults);
+  //  console.log(results);
+ 
     return (
         <>
         <Title>Movies search page</Title>
@@ -39,7 +42,7 @@ const MoviesPage = () => {
 
         <SearchBar />
 
-        {movies && <MoviesList movies={movies} />}
+        {results && <MoviesList results={results} />}
 </>
     );
 }

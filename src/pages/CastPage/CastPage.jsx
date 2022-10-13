@@ -6,12 +6,12 @@ import { CastList } from 'components/Cast/Cast';
 
 const Cast = () => {
   const { movieId } = useParams();
-  const [actors, setActors] = useState(null);    
+  const [cast, setCast] = useState(null);    
 
   useEffect(() => {
     try {
       
-      getMovieCast(movieId).then(setActors);  
+      getMovieCast(Number(movieId)).then(setCast);  
     }
     catch (err) {
       console.log(err);
@@ -20,7 +20,7 @@ const Cast = () => {
     
     return (
         <>
-        {actors && actors.cast.length > 0 ? (<CastList actors={actors} />) : (<h2>We don't have the information about actors</h2>)}
+        {cast && cast.length > 0 ? (<CastList cast={cast} />) : (<h2>We don't have the information about actors</h2>)}
             </>
     );
 }

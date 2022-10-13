@@ -6,11 +6,11 @@ import { ReviewsList } from 'components/Reviews/Reviews';
 
 const Reviews = () => {
   const { movieId } = useParams();
-  const [reviews, setReviews] = useState(null);
+  const [results, setResults] = useState(null);
 
   useEffect(() => {
     try {
-      getMovieReviews(movieId).then(setReviews);
+      getMovieReviews(Number(movieId)).then(setResults);
     }
     catch (err) {
       console.log(err);
@@ -19,7 +19,7 @@ const Reviews = () => {
 
   return (
     <>
-      {reviews && reviews.results.length > 0 ? (<ReviewsList reviews={reviews} />) :
+      {results && results.length > 0 ? (<ReviewsList results={results} />) :
         (<h2>We don't have any reviews for this movie</h2>)}
     </>
   )

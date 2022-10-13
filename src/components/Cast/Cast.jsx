@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 
 import { CastLst, CastItem, CastImg, CastName, CastSpan } from './Cast.styled';
 
-export const CastList = ({ actors }) => {
+export const CastList = ({ cast }) => {
   return (
      
       <CastLst>
-        {actors.cast.map(({ id, name, profile_path, character }) => {
+        {cast.map(({ id, name, profile_path, character }) => {
           return (
             <CastItem key={id}>
                 <CastImg
@@ -25,9 +25,13 @@ export const CastList = ({ actors }) => {
 }
 
 CastList.propTypes = {
-  id: PropTypes.number,
-  name: PropTypes.string,
-  profile_path: PropTypes.string,
-  character: PropTypes.string,
+  cast: PropTypes.arrayOf(
+         PropTypes.shape({
+          id: PropTypes.number,
+          name: PropTypes.string,
+          profile_path: PropTypes.string,
+          character: PropTypes.string,
+    })
+        ),
 };
 

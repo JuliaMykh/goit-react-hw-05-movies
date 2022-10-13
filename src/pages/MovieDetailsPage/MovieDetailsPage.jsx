@@ -19,7 +19,7 @@ const MovieDetails = () => {
   useEffect(() => {
     try {
       setIsLoading(true);
-      getMovieDetails(Number (movieId)).then(setMovieInfo);
+      getMovieDetails(Number(movieId)).then(setMovieInfo);
       
     }
     catch (err) {

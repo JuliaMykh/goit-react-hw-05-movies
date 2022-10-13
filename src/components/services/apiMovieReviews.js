@@ -7,7 +7,7 @@ export async function getMovieReviews(movieId) {
   const data = await response.json();
 
   // console.log(data);
-  return data;
+  return data.results;
 
   // const reviewsMovies = data.results.map(
   //   ({ author, content, id }) => {

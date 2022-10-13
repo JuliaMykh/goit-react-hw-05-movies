@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { NavLink } from 'react-router-dom';
 
 
-export const MovieList = styled.ul`
+export const MovieLst = styled.ul`
   margin-top: 20px;
   margin-left: 20px;
   

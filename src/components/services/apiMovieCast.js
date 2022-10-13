@@ -7,7 +7,7 @@ export async function getMovieCast(movieId) {
   const data = await response.json();
 
   // console.log(data);
-  return data;
+  return data.cast;
 
 }
 

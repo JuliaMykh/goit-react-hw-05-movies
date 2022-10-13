@@ -5,18 +5,18 @@ import { MoviesList } from 'components/MovieList/MovieList';
 import { Title } from './HomePage.styled';
 
 const HomePage = () => {
-  const [movies, setMovies] = useState(null);
+  const [results, setResults] = useState(null);
 
   useEffect(() => {
     try {
-      getTrends().then(setMovies);
+      getTrends().then(setResults);
     }
     catch (err){
       console.log(err);
     }
      }, []);
   
-  if (!movies) {
+  if (!results) {
     return null;
   }
 
@@ -24,7 +24,7 @@ const HomePage = () => {
       <>
       <Title> Tranding movies for today</Title>
       
-      {movies && <MoviesList movies={movies} />}
+      {results && <MoviesList results={results} />}
           
         </>
     );
